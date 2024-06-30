@@ -18,22 +18,96 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# Site settings
 title: SB Tech Blog
 email: sunbiny77@naver.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: > # 여러 줄 설명을 위한 설정
   This is my blog where I share my knowledge and experience in the field of technology.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://vincent8-8.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-
+baseurl: "" # 사이트가 루트가 아닌 하위 디렉토리에 있을 경우 설정 (예: /blog)
+url: "https://vincent8-8.github.io" # 사이트의 기본 URL
 
 # Build settings
-theme: minima
+markdown: kramdown
+theme: minima # Jekyll 테마
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Permalinks 설정
+permalink: /:categories/:year/:month/:day/:title/
 
 # Social settings
-github_username:  vincent8-8
-instagram_username:  yiiiisb8.8
+github_username: vincent8-8
+instagram_username: yiiiisb8.8
+
+# Pagination 설정
+paginate: 5
+paginate_path: "/page/:num/"
+
+# Exclude files and directories from processing
+exclude:
+  - node_modules
+  - vendor/bundle
+
+# Include specific files
+include:
+  - _pages
+
+# Custom variables
+author:
+  name: "Sunbin Yi"
+  bio: "Tech enthusiast and software developer."
+  location: "Seoul, South Korea"
+  gravatar: "your-gravatar-url"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sunbin Yi"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      author: "Sunbin Yi"
+
+# Markdown settings
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# SEO settings
+seo:
+  title: "SB Tech Blog"
+  description: "Sharing knowledge and experience in technology."
+  author: "Sunbin Yi"
+  twitter_username: "your_twitter_username"
+
+# Sitemap settings
+sitemap:
+  changefreq: weekly
+  priority: 0.7
+
+# Minima theme settings (추가 설정이 가능하다면)
+minima:
+  social_links:
+    twitter: "https://twitter.com/your_twitter_username"
+    github: "https://github.com/vincent8-8"
+    instagram: "https://www.instagram.com/yiiiisb8.8"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.
